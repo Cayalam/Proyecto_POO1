@@ -26,8 +26,8 @@ public class DialogoNiveles extends JDialog
     {
         //Definición del layout del Dialogo
         this.setLayout(null);
-        //Creación de los objetos
 
+        //Creación de los objetos
         seleccion = new JLabel("Seleccione la dificultad");
         seleccion.setBounds(60,30,200,40);
         seleccion.setFont(new java.awt.Font("Gomawo", 1, 15));

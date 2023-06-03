@@ -20,6 +20,8 @@ public class DialogoRespuesta extends JDialog{
         //Definición del layout de la ventana
         this.setLayout(null);
 
+
+        //Creación de los objetos
         Puntaje = new JLabel("Puntaje: "+puntaje);
         Puntaje.setBounds(60,30,200,40);
         Puntaje.setFont(new java.awt.Font("Gomawo", 1, 15));
@@ -40,10 +42,7 @@ public class DialogoRespuesta extends JDialog{
         salir.setFocusable(false);
         salir.setActionCommand("salir");
         this.add(salir);
-
-        
-
-       
+ 
         //Caracteristicas de la ventana
         this.setTitle("Trainer brain");
         this.setSize(600,600);
@@ -54,5 +53,28 @@ public class DialogoRespuesta extends JDialog{
 
       
     }
+    //Metodos de acceso
+    public JButton getBtSalir() {
+         return salir;
+    }
+    public void setPuntaje(double puntaje) {
+        this.puntaje = puntaje;
+    }
+    public double getPuntaje() {
+        return puntaje;
+    }
+    public void setFelicitaciones(JLabel felicitaciones) {
+        this.felicitaciones = felicitaciones;
+    }
+    public JLabel getFelicitaciones() {
+        return felicitaciones;
+    }
+    public void setPuntaje(JLabel puntaje) {
+        Puntaje = puntaje;
+    }
+    public JLabel getPuntaje() {
+        return Puntaje;
+    }
+    
     
 }
