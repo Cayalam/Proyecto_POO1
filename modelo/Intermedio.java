@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class Intermedio {
+public class Intermedio extends Preguntas{
 
     static String urlBD = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTvI9Cj8Xf7FR_ViPoF0BjppkbvrlUzUViMY8PFMZxsOboj9ylXXSwDfRJgX-tWiB2Wbuuy9GrRl9j8/pub?output=tsv";
     static String textoBaseDePreguntas = LeerArchivo_ASCII(urlBD);

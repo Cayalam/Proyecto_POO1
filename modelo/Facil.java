@@ -1,5 +1,5 @@
 package modelo;
 
-public class Facil {
+public class Facil extends Preguntas{
     
 }
