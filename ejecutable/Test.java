@@ -10,9 +10,7 @@ public class Test
     {
         VentanaPrincipal miVentana = new VentanaPrincipal();
         Controlador miControlador = new Controlador(miVentana,null);
-        DialogoNiveles miDialogoNiveles = new DialogoNiveles();
-        PreguntasGG miPreguntasGG = new PreguntasGG();
-        DialogoRespuesta miDialogoRespuesta = new DialogoRespuesta();
+        
   
     }    
 }
