@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import modelo.Facil;
 import modelo.JuegoDePreguntas;
 import vista.DialogoNiveles;
 import vista.PreguntasGG;
@@ -40,6 +41,7 @@ public class Controlador implements ActionListener
 // conectar el boton de facil con el dialogo de preguntas
         if (comando.equals("facil")){
             venPrin.crearDialogoPreguntas();
+            new Facil();
             this.venPrin.miDialogoNiveles.agregarOyenteBoton(this);
 
         }
