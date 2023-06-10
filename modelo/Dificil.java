@@ -1,5 +1,12 @@
 package modelo;
 
+<<<<<<< HEAD
+public class Dificil extends Preguntas {
+    //preguntas dificiles
+   
+    
+    
+=======
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -87,6 +94,7 @@ public class Dificil {
         br.close();
         return texto;
     }
+>>>>>>> 1a7e05743a9ea2a0633e5056cf55417f5871e0c4
 }
    
     
