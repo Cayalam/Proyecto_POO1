@@ -14,4 +14,5 @@ public class DialogoPreguntasFaciles  extends JDialog{
         this.setVisible(true);
     }
     
+    
 }

@@ -168,7 +168,9 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code"> 
+    // esto que sigue es el código que genera el IDE, no lo toques  
+
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
