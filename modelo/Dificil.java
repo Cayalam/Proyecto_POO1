@@ -1,19 +1,88 @@
 package modelo;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JFrame;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.Collections;
 
-public class Dificil extends JFrame  {
-    //----------------------
-    // Atributos
-    //----------------------
-   
-    
 
-    
-   
-    
-    
+public class Dificil {
+
+    static String urlBD = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRBDDri6uzHx4hRUoWqqpjgPQG8eYX3TjglMS6idD_VzQKvt_015mVu3yom7wcyjBCsA0qoYnQ4d6i8/pub?output=tsv";
+    static String textoBaseDePreguntas = LeerArchivo_ASCII(urlBD);
+    static String[] renglones = textoBaseDePreguntas.split("\n");
+    static int cantidadDePreguntas = renglones.length;
+
+    static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
+
+    String[] preguntaEscogida;
+    String pregunta;
+    String respuesta;
+    String img;
+    ArrayList<String> Opciones = new ArrayList<>();
+
+    int n_pregunta = 0;
+
+    public static void main(String args[]) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+        }
+        new Dificil();
+    }
+
+    public void escogerPregunta(int n) {
+        preguntaEscogida = baseDePreguntas[n];
+        pregunta = preguntaEscogida[0];
+        respuesta = preguntaEscogida[1];
+       
+        Opciones.clear();
+        for (int i = 1; i < 15; i++) {
+            Opciones.add(preguntaEscogida[i]);
+        }
+        for (int i = 0; i < 2; i++) {
+            Collections.shuffle(Opciones);
+        }
+    }
+    public static String LeerArchivo_ASCII(String ruta) {
+        try {
+            if (ruta == null) {
+                throw new RuntimeException("Error, la URL de lectura no puede ser nula");
+            }
+            URL url = new URL(ruta);
+            URLConnection conexión = url.openConnection();
+            InputStreamReader isr = new InputStreamReader(conexión.getInputStream());
+            return LeerArchivo_ASCII(isr);
+        } catch (Exception e) {
+            System.out.println("No hay conexión a internet, la base de datos no pudo ser cargada");
+            System.exit(0);
+        }
+        return "";
+    }
+
+    public static String LeerArchivo_ASCII(Reader reader) throws Exception {
+        BufferedReader br = new BufferedReader(reader);
+        String texto = "";
+        String linea;
+        boolean primerRenglón = true;
+        while ((linea = br.readLine()) != null) {
+            if (primerRenglón) {
+                primerRenglón = false;
+            } else {
+                texto += "\n";
+            }
+            texto += linea;
+        }
+        reader.close();
+        br.close();
+        return texto;
+    }
 }
