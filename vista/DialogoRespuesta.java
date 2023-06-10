@@ -60,11 +60,7 @@ public class DialogoRespuesta extends JDialog{
     public void setPuntaje(double puntaje) {
         this.puntaje = puntaje;
     }
-<<<<<<< HEAD
     
-=======
-
->>>>>>> f9d22096f7dbe56b9eba8957222a50e1fa81a3ff
     public void setFelicitaciones(JLabel felicitaciones) {
         this.felicitaciones = felicitaciones;
     }

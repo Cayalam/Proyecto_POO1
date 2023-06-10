@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 
 public class JuegoDePreguntas extends javax.swing.JFrame {
 
+// esto es para leer el archivo de texto de la base de datos de preguntas
     static String urlBD = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8hF79oryUhN80AaRSfDDYpnfJ1X77Uy3A55yNTiIZK7XGWseEG6loJPwcXkSCJ35odij8s5QD2UL4/pub?output=tsv";
     static String textoBaseDePreguntas = LeerArchivo_ASCII(urlBD);
     static String[] renglones = textoBaseDePreguntas.split("\n");
@@ -30,7 +31,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
     ArrayList<String> Opciones = new ArrayList<>();
 
     int n_pregunta = 0;
-
+// esto que es el main es el que se ejecuta al correr el programa
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -43,7 +44,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
         }
         new JuegoDePreguntas();
     }
-
+// esto que sigue es el constructor de la clase JuegoDePreguntas
     public void escogerPregunta(int n) {
         preguntaEscogida = baseDePreguntas[n];
         pregunta = preguntaEscogida[0];
@@ -61,8 +62,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
             Collections.shuffle(Opciones);
         }
     }
-//Veo muchos if /else, qué pasó con el "Try" y compañia 
-
+// esto que sigue es el constructor de la clase JuegoDePreguntas
     public void mostrarPregunta() {
         jLabel1.setText(pregunta);
         if (img.equals("")) {
@@ -84,7 +84,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
         jButton4.setText(Opciones.get(2));
         jButton3.setText(Opciones.get(3));
     }
-
+// esto que sigue es el constructor de la clase JuegoDePreguntas
     void escogerRespuesta(int n) {
         if (Opciones.get(n).equals(respuesta)) {
             JOptionPane.showMessageDialog(
@@ -103,7 +103,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
         }
         jugar();
     }
-
+// esto que sigue es el constructor de la clase JuegoDePreguntas
     public void jugar() {
         if (n_pregunta == cantidadDePreguntas) {
             JOptionPane.showMessageDialog(
@@ -119,6 +119,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
         n_pregunta++;
     }
 
+// esto que sigue es el constructor de la clase JuegoDePreguntas
     public JuegoDePreguntas() {
         for (int i = 0; i < renglones.length; i++) {
             String renglon = renglones[i];
@@ -133,6 +134,8 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
         jugar();
     }
 
+
+// esto que sigue es el constructor de la clase JuegoDePreguntas
     public static String LeerArchivo_ASCII(String ruta) {
         try {
             if (ruta == null) {
@@ -148,7 +151,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
         }
         return "";
     }
-
+// esto que sigue es el constructor de la clase JuegoDePreguntas
     public static String LeerArchivo_ASCII(Reader reader) throws Exception {
         BufferedReader br = new BufferedReader(reader);
         String texto = "";
@@ -166,7 +169,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
         br.close();
         return texto;
     }
-
+// esto que sigue es el constructor de la clase JuegoDePreguntas
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
@@ -243,8 +246,8 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
 
         pack();
-    }// </editor-fold>                        
-
+    }                      
+// esto que sigue es el constructor de la clase JuegoDePreguntas
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         escogerRespuesta(0);
     }                                        
@@ -260,7 +263,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         escogerRespuesta(3);
     }                                        
-
+// esto que sigue es el constructor de la clase JuegoDePreguntas
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
