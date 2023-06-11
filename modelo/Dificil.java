@@ -66,6 +66,9 @@ public class Dificil extends JFrame
 
     int n_pregunta = 0;
 
+    static int preguntasAcertadas = 0;
+    static int preguntasFalladas = 0;
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -120,7 +123,9 @@ public class Dificil extends JFrame
                     "Su respuesta es correcta",
                     "Muy bien :)",
                     JOptionPane.INFORMATION_MESSAGE
+                    
             );
+            preguntasAcertadas++;
         } else {
             JOptionPane.showMessageDialog(
                     this,
@@ -128,6 +133,7 @@ public class Dificil extends JFrame
                     "Que mal :(",
                     JOptionPane.ERROR_MESSAGE
             );
+            preguntasFalladas++;
         }
         jugar();
     }
@@ -136,7 +142,7 @@ public class Dificil extends JFrame
         if (n_pregunta == cantidadDePreguntas) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Juego Terminado",
+                    "Preguntas acertadas: " + preguntasAcertadas + "\nPreguntas falladas: " + preguntasFalladas + "\nGracias por jugar",
                     "Muy bien :)",
                     JOptionPane.PLAIN_MESSAGE
             );
