@@ -1,18 +1,11 @@
 package vista;
 
 import javax.swing.JDialog;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class DialogoPreguntasFaciles  extends JDialog{
-
-    
-
-    public DialogoPreguntasFaciles() {
-        this.setTitle("Preguntas Faciles");
-        this.setSize(500, 500);
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        this.setVisible(true);
-    }
-    
+public class DialogoPreguntasFaciles extends JDialog 
+{
     
 }

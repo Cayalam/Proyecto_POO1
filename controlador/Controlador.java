@@ -1,10 +1,7 @@
 package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JOptionPane;
-
-import modelo.JuegoDePreguntas;
 import vista.DialogoNiveles;
 import vista.PreguntasGG;
 import vista.VentanaPrincipal;
@@ -19,7 +16,6 @@ public class Controlador implements ActionListener
     public Controlador(VentanaPrincipal pVenPrin, DialogoNiveles miDialogoNiveles){
         this.venPrin =pVenPrin;
         this.jP= miDialogoNiveles;
-
         this.venPrin.miPanelEntradaDatos.agregarOyenteBoton(this);
     
     }

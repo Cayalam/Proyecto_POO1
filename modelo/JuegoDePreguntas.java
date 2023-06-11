@@ -88,11 +88,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
     void escogerRespuesta(int n) {
         if (Opciones.get(n).equals(respuesta)) {
             JOptionPane.showMessageDialog(
-                    this,
-                    "Su respuesta es correcta",
-                    "Muy bien :)",
-                    JOptionPane.INFORMATION_MESSAGE
-            );
+                    this,"Su respuesta es correcta","Muy bien :)", JOptionPane.INFORMATION_MESSAGE );
         } else {
             JOptionPane.showMessageDialog(
                     this,
