@@ -27,4 +27,36 @@ public class Intermedio extends JFrame
 +"¿Cuál es el símbolo químico del carbono?\tC\tCa\tCo" + "\n"
 +"¿Cuál es el país más pequeño del mundo en términos de superficie terrestre?\tCiudad del Vaticano\tMónaco\tNauru"+ "\n"
 +"¿En qué año se celebró la primera Copa Mundial de la FIFA?\t1930\t1950\t1960";
+static String[] renglones = textoBaseDePreguntas.split("\n");
+    static int cantidadDePreguntas = renglones.length;
+   
+
+
+    static String[][] baseDePreguntas = new String[cantidadDePreguntas][16];
+
+    String[] preguntaEscogida;
+    String pregunta;
+    String respuesta;
+    
+    ArrayList<String> Opciones = new ArrayList<>();
+
+    int n_pregunta = 0;
+
+    static int preguntasAcertadas = 0;
+    static int preguntasFalladas = 0;
+
+
+    public void escogerPregunta(int n) {
+        preguntaEscogida = baseDePreguntas[n];
+        pregunta = preguntaEscogida[0];
+        respuesta = preguntaEscogida[1];
+        Opciones.clear();
+        
+        for (int i = 1; i < 5; i++) {
+            Opciones.add(preguntaEscogida[i]);
+        }
+        for (int i = 0; i < 4; i++) {
+            Collections.shuffle(Opciones);
+        }
+    }
 }
