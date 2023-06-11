@@ -4,7 +4,10 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Dificil extends JFrame 
 {
@@ -33,7 +36,7 @@ public class Dificil extends JFrame
 +"\n"
 +"¿Cual es el país con mayor superficie del mundo?\tRusia\tCanada\tChina\tEstados Unidos"
 +"\n"
-+"Cual es el decierto mas grande del mundo?\tSahara\tAntartico\tArabia\tGobi"
++"Cual es el desierto mas grande del mundo?\tSahara\tAntartico\tArabia\tGobi"
 +"\n"
 +"¿Cual es la ciudad mas poblada de Africa?\tEl Cairo\tLagos\tKinshasa\tJohannesburgo"
 +"\n"
@@ -178,10 +181,7 @@ public class Dificil extends JFrame
         jLabel1.setText("Pregunta");
         jPanel2.add(jLabel1);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Imágen");
-        jPanel2.add(jLabel2);
+       
 
         jPanel1.add(jPanel2);
 
@@ -248,15 +248,15 @@ public class Dificil extends JFrame
 
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private JButton jButton1;
+    private JButton jButton2;
+    private JButton jButton3;
+    private JButton jButton4;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JPanel jPanel1;
+    private JPanel jPanel2;
+    private JPanel jPanel3;
     // End of variables declaration                   
 }
    
