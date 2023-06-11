@@ -22,7 +22,7 @@ public class Dificil extends JFrame
 +"\n"
 +"Cual es el oceano más grande del mundo?\tOceano Pacifico\tOceano Atlantico\tOceano Indico\tOceano Glacial Antartico"
 +"\n"
-+"¿Cual es el río más largo del mundo?\tRio Amazonas\tRio Nilo\tRio Yangtze\tRio Misisipi"
++"¿Cual es el río más largo del mundo?\tRio Nilo\tRio Amazonas\tRio Yangtze\tRio Misisipi"
 +"\n"
 +"¿Cual es el país más grande del mundo?\tRusia\tCanada\tChina\tEstados Unidos"
 +"\n"
@@ -63,6 +63,7 @@ public class Dificil extends JFrame
 
     static int preguntasAcertadas = 0;
     static int preguntasFalladas = 0;
+    static int puntuacion = 0;
 
 
     public void escogerPregunta(int n) {
@@ -104,12 +105,21 @@ public class Dificil extends JFrame
         jButton3.setBounds(0,250,100,100);
     }
 
+   public int calcularPuntuacion(int preguntasAcertadas, int preguntasFalladas) {
+    puntuacion = preguntasAcertadas * 100; // Actualización de la variable puntuacion
+    int penalizacion = (preguntasFalladas / 3) * 50;
+    puntuacion -= penalizacion;
+
+    return puntuacion;
+}
+
+
     void escogerRespuesta(int n) {
         if (Opciones.get(n).equals(respuesta)) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Su respuesta es correcta",
-                    "Muy bien :)",
+                    "Respuesta correcta",
+                    "Eso Bro :)",
                     JOptionPane.INFORMATION_MESSAGE
                     
             );
@@ -117,8 +127,8 @@ public class Dificil extends JFrame
         } else {
             JOptionPane.showMessageDialog(
                     this,
-                    "Su respuesta es incorrecta, la respuesta es: " + respuesta,
-                    "Que mal :(",
+                    "Repuesta incorrecta, la respuesta es: " + respuesta,
+                    "Mucha Loka :(",
                     JOptionPane.ERROR_MESSAGE
             );
             preguntasFalladas++;
@@ -127,13 +137,15 @@ public class Dificil extends JFrame
     }
 
     public void jugar() {
-        if (n_pregunta == cantidadDePreguntas) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Preguntas acertadas: " + preguntasAcertadas + "\nPreguntas falladas: " + preguntasFalladas + "\nGracias por jugar",
-                    "Muy bien :)",
-                    JOptionPane.PLAIN_MESSAGE
-            );
+    puntuacion = calcularPuntuacion(preguntasAcertadas, preguntasFalladas);
+    if (n_pregunta == cantidadDePreguntas) {
+            
+    JOptionPane.showMessageDialog(
+    this,
+    "Preguntas acertadas: " + preguntasAcertadas + "\nPreguntas falladas: " + preguntasFalladas +"\nTu puntuación fue: "+puntuacion +"\nGracias por jugar",
+    "Resultados... :/",
+    JOptionPane.PLAIN_MESSAGE
+);
             System.exit(0);
         }
         escogerPregunta(n_pregunta);
@@ -162,7 +174,7 @@ public class Dificil extends JFrame
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+       
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -253,7 +265,7 @@ public class Dificil extends JFrame
     private JButton jButton3;
     private JButton jButton4;
     private JLabel jLabel1;
-    private JLabel jLabel2;
+    
     private JPanel jPanel1;
     private JPanel jPanel2;
     private JPanel jPanel3;
