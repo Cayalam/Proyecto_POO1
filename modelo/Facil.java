@@ -19,7 +19,7 @@ public class Facil extends Preguntas{
     +"\n"
     +"Cual es el pais mas grande del mundo ?\tRusia\tChina\tEstados Unidos\tCanada\tBrasil"
     +"\n"
-    +"Cual es el rio mas caudaloso del planetas ?\tAmazonas\tNilo\tMisisipi\tGanges\tYangtze"
+    +"Cual es el rio mas caudaloso del planeta ?\tAmazonas\tNilo\tMisisipi\tGanges\tYangtze"
     +"\n"
     +"Cual es el pais mas visitado del mundo ?\tFrancia\tEstados Unidos\tEspaña\tChina\tItalia"
     +"\n"

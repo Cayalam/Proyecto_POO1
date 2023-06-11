@@ -8,85 +8,23 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import javax.swing.JFrame;
 
-public class Intermedio extends Preguntas{
 
-    static String urlBD = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTvI9Cj8Xf7FR_ViPoF0BjppkbvrlUzUViMY8PFMZxsOboj9ylXXSwDfRJgX-tWiB2Wbuuy9GrRl9j8/pub?output=tsv";
-    static String textoBaseDePreguntas = LeerArchivo_ASCII(urlBD);
-    static String[] renglones = textoBaseDePreguntas.split("\n");
-    static int cantidadDePreguntas = renglones.length;
-
-    static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
-
-    String[] preguntaEscogida;
-    String pregunta;
-    String respuesta;
-    String img;
-    ArrayList<String> Opciones = new ArrayList<>();
-
-    int n_pregunta = 0;
-
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (Exception ex) {
-        }
-        new Intermedio();
-    }
-
-    public void escogerPregunta(int n) {
-        preguntaEscogida = baseDePreguntas[n];
-        pregunta = preguntaEscogida[0];
-        respuesta = preguntaEscogida[1];
-        if (preguntaEscogida.length > 13) {
-            img = preguntaEscogida[13];
-        } else {
-            img = "";
-        }
-        Opciones.clear();
-        for (int i = 1; i < 12; i++) {
-            Opciones.add(preguntaEscogida[i]);
-        }
-        for (int i = 0; i < 3; i++) {
-            Collections.shuffle(Opciones);
-        }
-    }
-    public static String LeerArchivo_ASCII(String ruta) {
-        try {
-            if (ruta == null) {
-                throw new RuntimeException("Error, la URL de lectura no puede ser nula");
-            }
-            URL url = new URL(ruta);
-            URLConnection conexión = url.openConnection();
-            InputStreamReader isr = new InputStreamReader(conexión.getInputStream());
-            return LeerArchivo_ASCII(isr);
-        } catch (Exception e) {
-            System.out.println("No hay conexión a internet, la base de datos no pudo ser cargada");
-            System.exit(0);
-        }
-        return "";
-    }
-
-    public static String LeerArchivo_ASCII(Reader reader) throws Exception {
-        BufferedReader br = new BufferedReader(reader);
-        String texto = "";
-        String linea;
-        boolean primerRenglón = true;
-        while ((linea = br.readLine()) != null) {
-            if (primerRenglón) {
-                primerRenglón = false;
-            } else {
-                texto += "\n";
-            }
-            texto += linea;
-        }
-        reader.close();
-        br.close();
-        return texto;
-    }
+public class Intermedio extends JFrame 
+{
+    static String textoBaseDePreguntas = 
+"¿Cuál es la capital de Canadá?\tOttawa\tToronto\tVancouver" + "\n"
++"¿Cuál es la moneda oficial de Japón?\tYen\tDólar\tEuro" + "\n"
++ "¿Quién pintó: La noche estrellada?\tVincent van Gogh\tPablo Picasso\tSalvador Dalí" + "\n"
++ "¿Cuál es el océano más pequeño del mundo?\tOcéano Ártico\tOcéano Atlántico\tOcéano Índico" + "\n"
++ "¿Cuál es la montaña más alta de América del Norte?\tMonte McKinley (Denali)\tMontaña de la Mesa\tMonte Rainier" + "\n"
++"¿Cuál es el idioma más hablado en el mundo?\tMandarín\tInglés\tEspañol" + "\n"
++"¿Cuál es el país con la mayor extensión territorial en América del Sur?\tBrasil\tArgentina\tPerú"+ "\n"
++"¿Cuál es el escritor de la famosa novela: Cien años de soledad?\tGabriel García Márquez\tMario Vargas Llosa\tJulio Cortázar" + "\n"
++"¿Cuál es el país que tiene el sistema de gobierno conocido como: monarquía parlamentaria?\tReino Unido\tEstados Unidos\tAlemania" + "\n"
++"¿Quién fue el presidente de los Estados Unidos durante la Segunda Guerra Mundial?\tFranklin D. Roosevelt\tHarry S. Truman\tDwight D. Eisenhower" + "\n"
++"¿Cuál es el símbolo químico del carbono?\tC\tCa\tCo" + "\n"
++"¿Cuál es el país más pequeño del mundo en términos de superficie terrestre?\tCiudad del Vaticano\tMónaco\tNauru"+ "\n"
++"¿En qué año se celebró la primera Copa Mundial de la FIFA?\t1930\t1950\t1960";
 }
