@@ -1,23 +1,15 @@
 package vista;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.URL;
-import java.net.URLConnection;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
 public class Dificil extends JFrame 
 {
     static String textoBaseDePreguntas = 
-"¿Cual es el metal más ligero en la tabla periodica?\tHidrógeno\tHelio\tLitio\tOxigeno"
+"¿Cual es el elemento más ligero en la tabla periodica?\tHidrógeno\tHelio\tLitio\tOxigeno"
 +"\n"
 +"En que año se fundo la compañia Microsoft?\t1975\t1980\t1985\t1990"
 +"\n"
@@ -76,9 +68,6 @@ public class Dificil extends JFrame
         respuesta = preguntaEscogida[1];
         Opciones.clear();
         
-
-        
-        
         for (int i = 1; i < 5; i++) {
             Opciones.add(preguntaEscogida[i]);
         }
@@ -92,9 +81,24 @@ public class Dificil extends JFrame
         jLabel1.setText(pregunta);
        
         jButton1.setText(Opciones.get(0));
+        jButton1.setBackground(Color.cyan);
+        jButton1.setFocusable(false);
+        jButton1.setBounds(0, 100, 100, 100);
+
         jButton2.setText(Opciones.get(1));
+        jButton2.setBackground(Color.cyan);
+        jButton2.setFocusable(false);
+        jButton2.setBounds(0,150,100,100);
+
         jButton4.setText(Opciones.get(2));
+        jButton4.setBackground(Color.cyan);
+        jButton4.setFocusable(false);
+        jButton4.setBounds(0,200,100,100);
+
         jButton3.setText(Opciones.get(3));
+        jButton3.setBackground(Color.cyan);
+        jButton3.setFocusable(false);
+        jButton3.setBounds(0,250,100,100);
     }
 
     void escogerRespuesta(int n) {
