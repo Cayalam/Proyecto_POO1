@@ -106,4 +106,32 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
         jugar();
     }
 
+    public void jugar() {
+        if (n_pregunta == cantidadDePreguntas) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Preguntas acertadas: " + preguntasAcertadas + "\nPreguntas falladas: " + preguntasFalladas + "\nGracias por jugar",
+                    "Muy bien :)",
+                    JOptionPane.PLAIN_MESSAGE
+            );
+            System.exit(0);
+        }
+        escogerPregunta(n_pregunta);
+        mostrarPregunta();
+        n_pregunta++;
+    }
+
+    public Intermedio(Object object) {
+        for (int i = 0; i < renglones.length; i++) {
+            String renglon = renglones[i];
+            baseDePreguntas[i] = renglon.split("\t");
+        }
+        initComponents();
+        setSize(900, 600);
+        setLocationRelativeTo(null);
+        //setExtendedState(MAXIMIZED_BOTH);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        jugar();
+    }
 }
