@@ -1,4 +1,4 @@
-package modelo;
+package vista;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -69,25 +69,6 @@ public class Dificil extends JFrame
     static int preguntasAcertadas = 0;
     static int preguntasFalladas = 0;
 
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (Exception ex) {
-        }
-        for(int i=0;i<renglones.length;i++){
-            String renglon = renglones[i];
-            baseDePreguntas[i] = renglon.split("\t");
-            
-            
-        }
-        new Dificil();
-    }
-    
 
     public void escogerPregunta(int n) {
         preguntaEscogida = baseDePreguntas[n];
@@ -153,7 +134,7 @@ public class Dificil extends JFrame
         n_pregunta++;
     }
 
-    public Dificil() {
+    public Dificil(Object object) {
         for (int i = 0; i < renglones.length; i++) {
             String renglon = renglones[i];
             baseDePreguntas[i] = renglon.split("\t");

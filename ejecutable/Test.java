@@ -3,8 +3,10 @@ import controlador.Controlador;
 import vista.DialogoNiveles;
 import vista.DialogoPreguntasFaciles;
 import vista.DialogoRespuesta;
+import vista.Dificil;
 import vista.PreguntasGG;
 import vista.VentanaPrincipal;
+import vista.DialogoNivelDificil;
 public class Test 
 {
     public static void main(String[] args) 
@@ -12,6 +14,7 @@ public class Test
         VentanaPrincipal miVentana = new VentanaPrincipal();
         Controlador miControlador = new Controlador(miVentana,null);
         DialogoPreguntasFaciles miDialogoPreguntasFaciles = new DialogoPreguntasFaciles();
+        
         
   
     }    
