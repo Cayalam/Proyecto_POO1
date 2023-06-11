@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 public class Intermedio extends JFrame 
@@ -59,4 +60,50 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
             Collections.shuffle(Opciones);
         }
     }
+    public void mostrarPregunta() {
+        jLabel1.setText(pregunta);
+       
+        jButton1.setText(Opciones.get(0));
+        jButton1.setBackground(Color.cyan);
+        jButton1.setFocusable(false);
+        jButton1.setBounds(0, 100, 100, 100);
+
+        jButton2.setText(Opciones.get(1));
+        jButton2.setBackground(Color.cyan);
+        jButton2.setFocusable(false);
+        jButton2.setBounds(0,150,100,100);
+
+        jButton4.setText(Opciones.get(2));
+        jButton4.setBackground(Color.cyan);
+        jButton4.setFocusable(false);
+        jButton4.setBounds(0,200,100,100);
+
+        jButton3.setText(Opciones.get(3));
+        jButton3.setBackground(Color.cyan);
+        jButton3.setFocusable(false);
+        jButton3.setBounds(0,250,100,100);
+    }
+
+    void escogerRespuesta(int n) {
+        if (Opciones.get(n).equals(respuesta)) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Su respuesta es correcta",
+                    "Muy bien :)",
+                    JOptionPane.INFORMATION_MESSAGE
+                    
+            );
+            preguntasAcertadas++;
+        } else {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Su respuesta es incorrecta, la respuesta es: " + respuesta,
+                    "Que mal :(",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            preguntasFalladas++;
+        }
+        jugar();
+    }
+
 }
