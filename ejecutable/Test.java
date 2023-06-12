@@ -6,7 +6,7 @@ import vista.DialogoRespuesta;
 import vista.Dificil;
 import vista.PreguntasGG;
 import vista.VentanaPrincipal;
-import vista.DialogoNivelDificil;
+
 public class Test 
 {
     public static void main(String[] args) 

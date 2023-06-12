@@ -142,7 +142,7 @@ public class Dificil extends JFrame
             
     JOptionPane.showMessageDialog(
     this,
-    "Preguntas acertadas: " + preguntasAcertadas + "\nPreguntas falladas: " + preguntasFalladas +"\nTu puntuación fue: "+puntuacion +"\nGracias por jugar",
+    "Preguntas acertadas: " + preguntasAcertadas + "\nPreguntas falladas: " + preguntasFalladas +"\nTu puntuación fue: "+puntuacion +"\n\nCada dia te superas mas :D",
     "Resultados... :/",
     JOptionPane.PLAIN_MESSAGE
 );

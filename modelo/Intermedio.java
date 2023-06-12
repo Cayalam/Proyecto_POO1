@@ -22,6 +22,7 @@ public class Intermedio extends JFrame
 +"¿Cuál es el símbolo químico del carbono?\tC\tCa\tCo" + "\n"
 +"¿Cuál es el país más pequeño del mundo en términos de superficie terrestre?\tCiudad del Vaticano\tMónaco\tNauru"+ "\n"
 +"¿En qué año se celebró la primera Copa Mundial de la FIFA?\t1930\t1950\t1960";
+
 static String[] renglones = textoBaseDePreguntas.split("\n");
     static int cantidadDePreguntas = renglones.length;
    
