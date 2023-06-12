@@ -11,19 +11,19 @@ import javax.swing.JLabel;
 
 public class Intermedio extends JFrame {
     static String textoBaseDePreguntas =
-            "¿Cuál es la capital de Canadá?\tOttawa\tToronto\tVancouver" + "\n"
-                    + "¿Cuál es la moneda oficial de Japón?\tYen\tDólar\tEuro" + "\n"
-                    + "¿Quién pintó: La noche estrellada?\tVincent van Gogh\tPablo Picasso\tSalvador Dalí" + "\n"
-                    + "¿Cuál es el océano más pequeño del mundo?\tOcéano Ártico\tOcéano Atlántico\tOcéano Índico" + "\n"
-                    + "¿Cuál es la montaña más alta de América del Norte?\tMonte McKinley (Denali)\tMontaña de la Mesa\tMonte Rainier" + "\n"
-                    + "¿Cuál es el idioma más hablado en el mundo?\tMandarín\tInglés\tEspañol" + "\n"
-                    + "¿Cuál es el país con la mayor extensión territorial en América del Sur?\tBrasil\tArgentina\tPerú" + "\n"
-                    + "¿Cuál es el escritor de la famosa novela: Cien años de soledad?\tGabriel García Márquez\tMario Vargas Llosa\tJulio Cortázar" + "\n"
-                    + "¿Cuál es el país que tiene el sistema de gobierno conocido como: monarquía parlamentaria?\tReino Unido\tEstados Unidos\tAlemania" + "\n"
-                    + "¿Quién fue el presidente de los Estados Unidos durante la Segunda Guerra Mundial?\tFranklin D. Roosevelt\tHarry S. Truman\tDwight D. Eisenhower" + "\n"
-                    + "¿Cuál es el símbolo químico del carbono?\tC\tCa\tCo" + "\n"
-                    + "¿Cuál es el país más pequeño del mundo en términos de superficie terrestre?\tCiudad del Vaticano\tMónaco\tNauru" + "\n"
-                    + "¿En qué año se celebró la primera Copa Mundial de la FIFA?\t1930\t1950\t1960";
+            "¿Cuál es la capital de Canadá?\tOttawa\tToronto\tVancouver\t Monte real" + "\n"
+                    + "¿Cuál es la moneda oficial de Japón?\tYen\tDólar\tEuro\tYuan" + "\n"
+                    + "¿Quién pintó: La noche estrellada?\tVincent van Gogh\tPablo Picasso\tSalvador Dalí\tLeonardo Da Vinci" + "\n"
+                    + "¿Cuál es el océano más pequeño del mundo?\tOcéano Ártico\tOcéano Atlántico\tOcéano Índico\tOcéano Antertico" + "\n"
+                    + "¿Cuál es la montaña más alta de América del Norte?\tMonte McKinley (Denali)\tMontaña de la Mesa\tMonte Rainier\tPico de Orizaba" + "\n"
+                    + "¿Cuál es el idioma más hablado en el mundo?\tMandarín\tInglés\tEspañol\tHindu" + "\n"
+                    + "¿Cuál es el país con la mayor extensión territorial en América del Sur?\tBrasil\tArgentina\tPerú\tColombia" + "\n"
+                    + "¿Cuál es el escritor de la famosa novela: Cien años de soledad?\tGabriel García Márquez\tMario Vargas Llosa\tJulio Cortázar\tIsabel Allende" + "\n"
+                    + "¿Cuál es el país que tiene el sistema de gobierno conocido como: monarquía parlamentaria?\tReino Unido\tEstados Unidos\tAlemania\tFrancia" + "\n"
+                    + "¿Quién fue el presidente de los Estados Unidos durante la Segunda Guerra Mundial?\tFranklin D. Roosevelt\tHarry S. Truman\tDwight D. Eisenhower\tJohn F. Kennedy" + "\n"
+                    + "¿Cuál es el símbolo químico del carbono?\tC\tCa\tCo\tCu" + "\n"
+                    + "¿Cuál es el país más pequeño del mundo en términos de superficie terrestre?\tCiudad del Vaticano\tMónaco\tNauru\tTuvalu" + "\n"
+                    + "¿En qué año se celebró la primera Copa Mundial de la FIFA?\t1930\t1950\t1960\t1970";
 
     static String[] renglones = textoBaseDePreguntas.split("\n");
     static int cantidadDePreguntas = renglones.length;
