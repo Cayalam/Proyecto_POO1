@@ -106,7 +106,7 @@ public class Dificil extends JFrame
     }
 
    public int calcularPuntuacion(int preguntasAcertadas, int preguntasFalladas) {
-    puntuacion = preguntasAcertadas * 100; // Actualización de la variable puntuacion
+    puntuacion = preguntasAcertadas * 100; 
     int penalizacion = (preguntasFalladas / 3) * 50;
     puntuacion -= penalizacion;
 
@@ -142,7 +142,7 @@ public class Dificil extends JFrame
             
     JOptionPane.showMessageDialog(
     this,
-    "Preguntas acertadas: " + preguntasAcertadas + "\nPreguntas falladas: " + preguntasFalladas +"\nTu puntuación fue: "+puntuacion +"\n\nCada dia te superas mas :D",
+    "Preguntas acertadas: " + preguntasAcertadas + "\n\nPreguntas falladas: " + preguntasFalladas +"\n\nTu puntuación fue: "+puntuacion +"\n\n\nCada dia te superas mas :D",
     "Resultados... :/",
     JOptionPane.PLAIN_MESSAGE
 );
