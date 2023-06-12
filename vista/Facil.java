@@ -1,34 +1,42 @@
-package modelo;
+package vista;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
-public class Intermedio extends JFrame 
-{
-    static String textoBaseDePreguntas = 
-"¿Cuál es la capital de Canadá?\tOttawa\tToronto\tVancouver" + "\n"
-+"¿Cuál es la moneda oficial de Japón?\tYen\tDólar\tEuro" + "\n"
-+ "¿Quién pintó: La noche estrellada?\tVincent van Gogh\tPablo Picasso\tSalvador Dalí" + "\n"
-+ "¿Cuál es el océano más pequeño del mundo?\tOcéano Ártico\tOcéano Atlántico\tOcéano Índico" + "\n"
-+ "¿Cuál es la montaña más alta de América del Norte?\tMonte McKinley (Denali)\tMontaña de la Mesa\tMonte Rainier" + "\n"
-+"¿Cuál es el idioma más hablado en el mundo?\tMandarín\tInglés\tEspañol" + "\n"
-+"¿Cuál es el país con la mayor extensión territorial en América del Sur?\tBrasil\tArgentina\tPerú"+ "\n"
-+"¿Cuál es el escritor de la famosa novela: Cien años de soledad?\tGabriel García Márquez\tMario Vargas Llosa\tJulio Cortázar" + "\n"
-+"¿Cuál es el país que tiene el sistema de gobierno conocido como: monarquía parlamentaria?\tReino Unido\tEstados Unidos\tAlemania" + "\n"
-+"¿Quién fue el presidente de los Estados Unidos durante la Segunda Guerra Mundial?\tFranklin D. Roosevelt\tHarry S. Truman\tDwight D. Eisenhower" + "\n"
-+"¿Cuál es el símbolo químico del carbono?\tC\tCa\tCo" + "\n"
-+"¿Cuál es el país más pequeño del mundo en términos de superficie terrestre?\tCiudad del Vaticano\tMónaco\tNauru"+ "\n"
-+"¿En qué año se celebró la primera Copa Mundial de la FIFA?\t1930\t1950\t1960";
+public class Facil extends JFrame {
+    static String textoBaseDeDatos =
+            "¿Dónde está ubicada la Casa Blanca?\tWashington D.C.\tNew York\tCalifornia\tFlorida\tTexas"
+                    + "\n" +
+                    "¿Cuándo acabó la Segunda Guerra Mundial?\t1945\t1944\t1943\t1942\t1941"
+                    + "\n" +
+                    "¿Quién inventó la bombilla?\tThomas Edison\tNikola Tesla\tBenjamin Franklin\tAlbert Einstein\tIsaac Newton"
+                    + "\n" +
+                    "¿Quién inventó el teléfono?\tAlexander Graham Bell\tThomas Edison\tNikola Tesla\tBenjamin Franklin\tAlbert Einstein"
+                    + "\n" +
+                    "¿Cuál es el país más grande del mundo?\tRusia\tChina\tEstados Unidos\tCanadá\tBrasil"
+                    + "\n" +
+                    "¿Cuál es el río más caudaloso del planeta?\tAmazonas\tNilo\tMisisipi\tGanges\tYangtsé"
+                    + "\n" +
+                    "¿Cuál es el país más visitado del mundo?\tFrancia\tEstados Unidos\tEspaña\tChina\tItalia"
+                    + "\n" +
+                    "¿Cuál es la moneda que maneja Estados Unidos?\tDólar\tEuro\tPeso\tYen\tLibra"
+                    + "\n" +
+                    "¿Cuál es el país más poblado del mundo?\tChina\tIndia\tEstados Unidos\tIndonesia\tBrasil";
 
-static String[] renglones = textoBaseDePreguntas.split("\n");
+    private static String textoBaseDePreguntas;
+
+    static String[] renglones = textoBaseDePreguntas.split("\n");
     static int cantidadDePreguntas = renglones.length;
    
 
 
-    static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
+    static String[][] baseDePreguntas = new String[cantidadDePreguntas][16];
 
     String[] preguntaEscogida;
     String pregunta;
@@ -40,6 +48,7 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
 
     static int preguntasAcertadas = 0;
     static int preguntasFalladas = 0;
+    static int puntuacion = 0;
 
 
     public void escogerPregunta(int n) {
@@ -55,6 +64,8 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
             Collections.shuffle(Opciones);
         }
     }
+//Veo muchos if /else, qué pasó con el "Try" y compañia 
+
     public void mostrarPregunta() {
         jLabel1.setText(pregunta);
        
@@ -79,12 +90,21 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
         jButton3.setBounds(0,250,100,100);
     }
 
+   public int calcularPuntuacion(int preguntasAcertadas, int preguntasFalladas) {
+    puntuacion = preguntasAcertadas * 100; 
+    int penalizacion = (preguntasFalladas / 3) * 50;
+    puntuacion -= penalizacion;
+
+    return puntuacion;
+}
+
+
     void escogerRespuesta(int n) {
         if (Opciones.get(n).equals(respuesta)) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Su respuesta es correcta",
-                    "Muy bien :)",
+                    "Respuesta correcta",
+                    "Eso Bro :)",
                     JOptionPane.INFORMATION_MESSAGE
                     
             );
@@ -92,8 +112,8 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
         } else {
             JOptionPane.showMessageDialog(
                     this,
-                    "Su respuesta es incorrecta, la respuesta es: " + respuesta,
-                    "Que mal :(",
+                    "Repuesta incorrecta, la respuesta es: " + respuesta,
+                    "Mucha Loka :(",
                     JOptionPane.ERROR_MESSAGE
             );
             preguntasFalladas++;
@@ -102,13 +122,15 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
     }
 
     public void jugar() {
-        if (n_pregunta == cantidadDePreguntas) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Preguntas acertadas: " + preguntasAcertadas + "\nPreguntas falladas: " + preguntasFalladas + "\nGracias por jugar",
-                    "Muy bien :)",
-                    JOptionPane.PLAIN_MESSAGE
-            );
+    puntuacion = calcularPuntuacion(preguntasAcertadas, preguntasFalladas);
+    if (n_pregunta == cantidadDePreguntas) {
+          
+    JOptionPane.showMessageDialog(
+    this,
+    "Preguntas acertadas: " + preguntasAcertadas + "\n\nPreguntas falladas: " + preguntasFalladas +"\n\nTu puntuación fue: "+puntuacion +"\n\n\nCada dia te superas mas :D",
+    "Resultados... :/",
+    JOptionPane.PLAIN_MESSAGE
+);
             System.exit(0);
         }
         escogerPregunta(n_pregunta);
@@ -116,7 +138,7 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
         n_pregunta++;
     }
 
-    public Intermedio(Object object) {
+    public Facil(Object object) {
         for (int i = 0; i < renglones.length; i++) {
             String renglon = renglones[i];
             baseDePreguntas[i] = renglon.split("\t");
@@ -129,6 +151,7 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
         setVisible(true);
         jugar();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
@@ -136,7 +159,7 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+       
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -154,11 +177,6 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Pregunta");
         jPanel2.add(jLabel1);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Imágen");
-        jPanel2.add(jLabel2);
 
         jPanel1.add(jPanel2);
 
@@ -205,7 +223,8 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
         getContentPane().add(jPanel1);
 
         pack();
-    }
+    }// </editor-fold>                        
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         escogerRespuesta(0);
     }                                        
@@ -224,13 +243,13 @@ static String[] renglones = textoBaseDePreguntas.split("\n");
 
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private JButton jButton1;
+    private JButton jButton2;
+    private JButton jButton3;
+    private JButton jButton4;
+    private JLabel jLabel1;
+    
+    private JPanel jPanel1;
+    private JPanel jPanel2;
+    private JPanel jPanel3;
 }

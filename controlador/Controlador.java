@@ -3,10 +3,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-import modelo.Facil;
-import modelo.Intermedio;
 import vista.DialogoNiveles;
 import vista.Dificil;
+import vista.Facil;
+import vista.Intermedio;
 import vista.PreguntasGG;
 import vista.VentanaPrincipal;
 
@@ -15,7 +15,6 @@ public class Controlador implements ActionListener
 {
     private VentanaPrincipal venPrin;
     private DialogoNiveles jP;
-    private PreguntasGG madrePreguntasGG;
     private Facil preguntasFacil;
     private Intermedio preguntasIntermedio;
     private Dificil preguntasDificil;
@@ -45,7 +44,7 @@ public class Controlador implements ActionListener
         if (comando.equals("facil")){
             venPrin.crearDialogoPreguntas();
             this.venPrin.miDialogoNiveles.agregarOyenteBoton(this);
-            preguntasFacil = new Facil();
+            preguntasFacil = new Facil(comando);
 
         }
         if (comando.equals("intermedio")){

@@ -1,5 +1,6 @@
 package vista;
 
+
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,8 +45,6 @@ public class Dificil extends JFrame
 +"\n"
 +"¿Cual es la estatua mas famosa del mundo?\tLa Estatua de la Libertad\tEl David\tEl Pensador\tEl Moises";
 
-
-   
     static String[] renglones = textoBaseDePreguntas.split("\n");
     static int cantidadDePreguntas = renglones.length;
    
@@ -139,7 +138,7 @@ public class Dificil extends JFrame
     public void jugar() {
     puntuacion = calcularPuntuacion(preguntasAcertadas, preguntasFalladas);
     if (n_pregunta == cantidadDePreguntas) {
-            
+          
     JOptionPane.showMessageDialog(
     this,
     "Preguntas acertadas: " + preguntasAcertadas + "\n\nPreguntas falladas: " + preguntasFalladas +"\n\nTu puntuación fue: "+puntuacion +"\n\n\nCada dia te superas mas :D",
@@ -192,8 +191,6 @@ public class Dificil extends JFrame
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Pregunta");
         jPanel2.add(jLabel1);
-
-       
 
         jPanel1.add(jPanel2);
 
@@ -271,6 +268,3 @@ public class Dificil extends JFrame
     private JPanel jPanel3;
     // End of variables declaration                   
 }
-   
-    
-
