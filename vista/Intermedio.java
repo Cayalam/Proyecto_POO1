@@ -5,6 +5,10 @@ import java.util.Collections;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 
 public class Intermedio extends JFrame 
 {
@@ -43,6 +47,9 @@ public class Intermedio extends JFrame
 
 static String[] renglones = textoBaseDePreguntas.split("\n");
 static int cantidadDePreguntas = renglones.length;
+
+   
+
    
 
 static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
@@ -57,6 +64,7 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
 
     static int preguntasAcertadas = 0;
     static int preguntasFalladas = 0;
+    static int puntuacion = 0;
 
 
     public void escogerPregunta(int n) {
@@ -95,13 +103,20 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
         jButton3.setFocusable(false);
         jButton3.setBounds(0,250,100,100);
     }
+    public int calcularPuntuacion(int preguntasAcertadas, int preguntasFalladas) {
+    puntuacion = preguntasAcertadas * 100; 
+    int penalizacion = (preguntasFalladas / 3) * 50;
+    puntuacion -= penalizacion;
+
+    return puntuacion;
+}
 
     void escogerRespuesta(int n) {
         if (Opciones.get(n).equals(respuesta)) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Su respuesta es correcta",
-                    "Muy bien :)",
+                    "Respuesta  correcta",
+                    "Eso bro :)",
                     JOptionPane.INFORMATION_MESSAGE
                     
             );
@@ -109,8 +124,8 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
         } else {
             JOptionPane.showMessageDialog(
                     this,
-                    "Su respuesta es incorrecta, la respuesta es: " + respuesta,
-                    "Que mal :(",
+                    "Respuesta Incorrecta, la respuesta es: " + respuesta,
+                    "Mucha loka :(",
                     JOptionPane.ERROR_MESSAGE
             );
             preguntasFalladas++;
@@ -119,11 +134,12 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
     }
 
     public void jugar() {
+          puntuacion = calcularPuntuacion(preguntasAcertadas, preguntasFalladas);
         if (n_pregunta == cantidadDePreguntas) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Preguntas acertadas: " + preguntasAcertadas + "\nPreguntas falladas: " + preguntasFalladas + "\nGracias por jugar",
-                    "Muy bien :)",
+                    "Preguntas acertadas: " + preguntasAcertadas + "\n\nPreguntas falladas: " + preguntasFalladas +"\n\nTu puntuación fue: "+ puntuacion+"\n\nCada dia te su",
+                    "Resultados :/",
                     JOptionPane.PLAIN_MESSAGE
             );
             System.exit(0);
@@ -150,15 +166,15 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jPanel1 = new JPanel();
+        jPanel2 = new JPanel();
+        jLabel1 = new JLabel();
+        jLabel2 = new JLabel();
+        jPanel3 = new JPanel();
+        jButton1 = new JButton();
+        jButton2 = new JButton();
+        jButton4 = new JButton();
+        jButton3 = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout());
@@ -241,13 +257,13 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
 
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private JButton jButton1;
+    private JButton jButton2;
+    private JButton jButton3;
+    private JButton jButton4;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JPanel jPanel1;
+    private JPanel jPanel2;
+    private JPanel jPanel3;
 }
