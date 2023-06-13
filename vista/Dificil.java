@@ -137,6 +137,16 @@ public class Dificil extends JFrame
 
     public void jugar() {
     puntuacion = calcularPuntuacion(preguntasAcertadas, preguntasFalladas);
+     ArrayList<Integer> indices = new ArrayList<>();
+        for (int i = 0; i < cantidadDePreguntas; i++) {
+            indices.add(i);
+        }
+        Collections.shuffle(indices);
+
+        int indicePregunta = indices.get(n_pregunta);
+        escogerPregunta(indicePregunta);
+        mostrarPregunta();
+        n_pregunta++;
     if (n_pregunta == cantidadDePreguntas) {
           
     JOptionPane.showMessageDialog(

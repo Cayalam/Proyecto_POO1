@@ -7,7 +7,6 @@ import vista.DialogoNiveles;
 import vista.Dificil;
 import vista.Facil;
 import vista.Intermedio;
-import vista.PreguntasGG;
 import vista.VentanaPrincipal;
 
 
@@ -16,6 +15,7 @@ public class Controlador implements ActionListener
     private VentanaPrincipal venPrin;
     private DialogoNiveles jP;
     private Facil preguntasFacil;
+   
     private Intermedio preguntasIntermedio;
     private Dificil preguntasDificil;
 
@@ -41,10 +41,11 @@ public class Controlador implements ActionListener
 }
 
 // conectar el boton de facil con el dialogo de preguntas
-        if (comando.equals("facil")){
+        if (comando.equals("Facil")){
             venPrin.crearDialogoPreguntas();
             this.venPrin.miDialogoNiveles.agregarOyenteBoton(this);
             preguntasFacil = new Facil(comando);
+            
 
         }
         if (comando.equals("intermedio")){

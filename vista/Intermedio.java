@@ -135,6 +135,16 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
 
     public void jugar() {
           puntuacion = calcularPuntuacion(preguntasAcertadas, preguntasFalladas);
+           ArrayList<Integer> indices = new ArrayList<>();
+        for (int i = 0; i < cantidadDePreguntas; i++) {
+            indices.add(i);
+        }
+        Collections.shuffle(indices);
+
+        int indicePregunta = indices.get(n_pregunta);
+        escogerPregunta(indicePregunta);
+        mostrarPregunta();
+        n_pregunta++;
         if (n_pregunta == cantidadDePreguntas) {
             JOptionPane.showMessageDialog(
                     this,
@@ -188,11 +198,7 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
         jLabel1.setText("Pregunta");
         jPanel2.add(jLabel1);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Imágen");
-        jPanel2.add(jLabel2);
-
+        
         jPanel1.add(jPanel2);
 
         jPanel3.setLayout(new java.awt.GridLayout(4, 0, 0, 10));

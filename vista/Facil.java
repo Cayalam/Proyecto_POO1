@@ -1,5 +1,6 @@
 package vista;
 
+
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,9 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Facil extends JFrame {
-    static String textoBaseDeDatos =
-            "¿Dónde está ubicada la Casa Blanca?\tWashington D.C.\tNew York\tCalifornia\tFlorida\tTexas"
+public class Facil extends JFrame 
+{
+    static String textoBaseDePreguntas = 
+      "¿Dónde está ubicada la Casa Blanca?\tWashington D.C.\tNew York\tCalifornia\tFlorida\tTexas"
                     + "\n" +
                     "¿Cuándo acabó la Segunda Guerra Mundial?\t1945\t1944\t1943\t1942\t1941"
                     + "\n" +
@@ -29,7 +31,6 @@ public class Facil extends JFrame {
                     + "\n" +
                     "¿Cuál es el país más poblado del mundo?\tChina\tIndia\tEstados Unidos\tIndonesia\tBrasil";
 
-    private static String textoBaseDePreguntas;
 
     static String[] renglones = textoBaseDePreguntas.split("\n");
     static int cantidadDePreguntas = renglones.length;
@@ -64,7 +65,7 @@ public class Facil extends JFrame {
             Collections.shuffle(Opciones);
         }
     }
-//Veo muchos if /else, qué pasó con el "Try" y compañia 
+
 
     public void mostrarPregunta() {
         jLabel1.setText(pregunta);
@@ -123,6 +124,16 @@ public class Facil extends JFrame {
 
     public void jugar() {
     puntuacion = calcularPuntuacion(preguntasAcertadas, preguntasFalladas);
+     ArrayList<Integer> indices = new ArrayList<>();
+        for (int i = 0; i < cantidadDePreguntas; i++) {
+            indices.add(i);
+        }
+        Collections.shuffle(indices);
+
+        int indicePregunta = indices.get(n_pregunta);
+        escogerPregunta(indicePregunta);
+        mostrarPregunta();
+        n_pregunta++;
     if (n_pregunta == cantidadDePreguntas) {
           
     JOptionPane.showMessageDialog(
@@ -252,4 +263,6 @@ public class Facil extends JFrame {
     private JPanel jPanel1;
     private JPanel jPanel2;
     private JPanel jPanel3;
+    // End of variables declaration                   
 }
+
