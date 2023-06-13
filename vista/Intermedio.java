@@ -1,90 +1,111 @@
 package vista;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.awt.Color;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
-public class Intermedio extends JFrame {
-    static String textoBaseDePreguntas =
-            "¿Cuál es la capital de Canadá?\tOttawa\tToronto\tVancouver\t Monte real" + "\n"
-                    + "¿Cuál es la moneda oficial de Japón?\tYen\tDólar\tEuro\tYuan" + "\n"
-                    + "¿Quién pintó: La noche estrellada?\tVincent van Gogh\tPablo Picasso\tSalvador Dalí\tLeonardo Da Vinci" + "\n"
-                    + "¿Cuál es el océano más pequeño del mundo?\tOcéano Ártico\tOcéano Atlántico\tOcéano Índico\tOcéano Antertico" + "\n"
-                    + "¿Cuál es la montaña más alta de América del Norte?\tMonte McKinley (Denali)\tMontaña de la Mesa\tMonte Rainier\tPico de Orizaba" + "\n"
-                    + "¿Cuál es el idioma más hablado en el mundo?\tMandarín\tInglés\tEspañol\tHindu" + "\n"
-                    + "¿Cuál es el país con la mayor extensión territorial en América del Sur?\tBrasil\tArgentina\tPerú\tColombia" + "\n"
-                    + "¿Cuál es el escritor de la famosa novela: Cien años de soledad?\tGabriel García Márquez\tMario Vargas Llosa\tJulio Cortázar\tIsabel Allende" + "\n"
-                    + "¿Cuál es el país que tiene el sistema de gobierno conocido como: monarquía parlamentaria?\tReino Unido\tEstados Unidos\tAlemania\tFrancia" + "\n"
-                    + "¿Quién fue el presidente de los Estados Unidos durante la Segunda Guerra Mundial?\tFranklin D. Roosevelt\tHarry S. Truman\tDwight D. Eisenhower\tJohn F. Kennedy" + "\n"
-                    + "¿Cuál es el símbolo químico del carbono?\tC\tCa\tCo\tCu" + "\n"
-                    + "¿Cuál es el país más pequeño del mundo en términos de superficie terrestre?\tCiudad del Vaticano\tMónaco\tNauru\tTuvalu" + "\n"
-                    + "¿En qué año se celebró la primera Copa Mundial de la FIFA?\t1930\t1950\t1960\t1970";
+public class Intermedio extends JFrame 
+{
+    static String textoBaseDePreguntas = 
+     "¿Cuál es la capital de Canadá?\tOttawa\tToronto\tVancouver\tMontreal"
+ + "\n"
++"¿Cuál es la moneda oficial de Japón?\tYen\tDólar\tEuro\tPeso"
+ + "\n"
++ "¿Quién pintó: La noche estrellada?\tVincent van Gogh\tPablo Picasso\tSalvador Dalí\tjose" 
++ "\n"
++ "¿Cuál es el océano más pequeño del mundo?\tOcéano Ártico\tOcéano Atlántico\tOcéano Índico\t" 
++ "\n"
++ "¿Cuál es la montaña más alta de América del Norte?\tMonte McKinley (Denali)\tMontaña de la Mesa\tMonte Rainier\tMonte Whitney" 
++ "\n"
++"¿Cuál es el idioma más hablado en el mundo?\tMandarín\tInglés\tEspañol\tHindi"
++ "\n"
++"¿Cuál es el país con la mayor extensión territorial en América del Sur?\tBrasil\tArgentina\tPerú\tChile"
++ "\n"
++"¿Cuál es el escritor de la famosa novela: Cien años de soledad?\tGabriel García Márquez\tMario Vargas Llosa\tJulio Cortázar\tJorge Luis Borges"
+ + "\n"
++"¿Cuál es el país que tiene el sistema de gobierno conocido como: monarquía parlamentaria?\tReino Unido\tEstados Unidos\tAlemania" 
++ "\n"
++"¿Quién fue el presidente de los Estados Unidos durante la Segunda Guerra Mundial?\tFranklin D. Roosevelt\tHarry S. Truman\tDwight D. Eisenhower" 
++ "\n"
++"¿Cuál es el símbolo químico del carbono?\tC\tCa\tCo" 
++ "\n"
++"¿Cuál es el país más pequeño del mundo en términos de superficie terrestre?\tCiudad del Vaticano\tMónaco\tNauru"
++ "\n"
++"¿En qué año se celebró la primera Copa Mundial de la FIFA?\t1930\t1950\t1960"
+;
 
-    static String[] renglones = textoBaseDePreguntas.split("\n");
-    static int cantidadDePreguntas = renglones.length;
+static String[] renglones = textoBaseDePreguntas.split("\n");
+static int cantidadDePreguntas = renglones.length;
+   
 
-    static String[][] baseDePreguntas = new String[cantidadDePreguntas][4];
+static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
 
     String[] preguntaEscogida;
     String pregunta;
     String respuesta;
-
-    ArrayList<String> opciones = new ArrayList<>();
+    
+    ArrayList<String> Opciones = new ArrayList<>();
 
     int n_pregunta = 0;
 
     static int preguntasAcertadas = 0;
     static int preguntasFalladas = 0;
-    static int puntuacion = 0;
+
 
     public void escogerPregunta(int n) {
         preguntaEscogida = baseDePreguntas[n];
         pregunta = preguntaEscogida[0];
         respuesta = preguntaEscogida[1];
-        opciones.clear();
-
-        for (int i = 1; i < 4; i++) {
-            opciones.add(preguntaEscogida[i]);
+        Opciones.clear();
+        
+        for (int i = 1; i < 5; i++) {
+            Opciones.add(preguntaEscogida[i]);
         }
-        Collections.shuffle(opciones);
+        for (int i = 0; i < 4; i++) {
+            Collections.shuffle(Opciones);
+        }
     }
-
     public void mostrarPregunta() {
         jLabel1.setText(pregunta);
+       
+        jButton1.setText(Opciones.get(0));
+        jButton1.setBackground(Color.cyan);
+        jButton1.setFocusable(false);
+        jButton1.setBounds(0, 100, 100, 100);
 
-        jButton1.setText(opciones.get(0));
-        jButton2.setText(opciones.get(1));
-        jButton4.setText(opciones.get(2));
-        jButton3.setText(opciones.get(3));
-    }
+        jButton2.setText(Opciones.get(1));
+        jButton2.setBackground(Color.cyan);
+        jButton2.setFocusable(false);
+        jButton2.setBounds(0,150,100,100);
 
-    public int calcularPuntuacion(int preguntasAcertadas, int preguntasFalladas) {
-        puntuacion = preguntasAcertadas * 100;
-        int penalizacion = (preguntasFalladas / 3) * 50;
-        puntuacion -= penalizacion;
+        jButton4.setText(Opciones.get(2));
+        jButton4.setBackground(Color.cyan);
+        jButton4.setFocusable(false);
+        jButton4.setBounds(0,200,100,100);
 
-        return puntuacion;
+        jButton3.setText(Opciones.get(3));
+        jButton3.setBackground(Color.cyan);
+        jButton3.setFocusable(false);
+        jButton3.setBounds(0,250,100,100);
     }
 
     void escogerRespuesta(int n) {
-        if (opciones.get(n).equals(respuesta)) {
+        if (Opciones.get(n).equals(respuesta)) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Respuesta correcta",
-                    "¡Correcto!",
+                    "Su respuesta es correcta",
+                    "Muy bien :)",
                     JOptionPane.INFORMATION_MESSAGE
+                    
             );
             preguntasAcertadas++;
         } else {
             JOptionPane.showMessageDialog(
                     this,
-                    "Respuesta incorrecta, la respuesta es: " + respuesta,
-                    "¡Incorrecto!",
+                    "Su respuesta es incorrecta, la respuesta es: " + respuesta,
+                    "Que mal :(",
                     JOptionPane.ERROR_MESSAGE
             );
             preguntasFalladas++;
@@ -93,12 +114,11 @@ public class Intermedio extends JFrame {
     }
 
     public void jugar() {
-        puntuacion = calcularPuntuacion(preguntasAcertadas, preguntasFalladas);
         if (n_pregunta == cantidadDePreguntas) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Preguntas acertadas: " + preguntasAcertadas + "\n\nPreguntas falladas: " + preguntasFalladas + "\n\nTu puntuación fue: " + puntuacion + "\n\n¡Cada día te superas más!",
-                    "Resultados",
+                    "Preguntas acertadas: " + preguntasAcertadas + "\nPreguntas falladas: " + preguntasFalladas + "\nGracias por jugar",
+                    "Muy bien :)",
                     JOptionPane.PLAIN_MESSAGE
             );
             System.exit(0);
@@ -116,19 +136,19 @@ public class Intermedio extends JFrame {
         initComponents();
         setSize(900, 600);
         setLocationRelativeTo(null);
+        //setExtendedState(MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         jugar();
     }
-
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-
+        jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -142,16 +162,21 @@ public class Intermedio extends JFrame {
 
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Pregunta");
         jPanel2.add(jLabel1);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Imágen");
+        jPanel2.add(jLabel2);
 
         jPanel1.add(jPanel2);
 
         jPanel3.setLayout(new java.awt.GridLayout(4, 0, 0, 10));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24));
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("Opción 1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +185,7 @@ public class Intermedio extends JFrame {
         });
         jPanel3.add(jButton1);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24));
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton2.setText("Opción 2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,7 +194,7 @@ public class Intermedio extends JFrame {
         });
         jPanel3.add(jButton2);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 24));
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton4.setText("Opción 3");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,7 +203,7 @@ public class Intermedio extends JFrame {
         });
         jPanel3.add(jButton4);
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 24));
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Opción 4");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,34 +217,32 @@ public class Intermedio extends JFrame {
         getContentPane().add(jPanel1);
 
         pack();
-    }// </editor-fold>
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         escogerRespuesta(0);
-    }
+    }                                        
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         escogerRespuesta(1);
-    }
+    }                                        
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         escogerRespuesta(2);
-    }
+    }                                        
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         escogerRespuesta(3);
-    }
+    }                                        
 
 
-    // Variables declaration - do not modify
-    private JButton jButton1;
-    private JButton jButton2;
-    private JButton jButton3;
-    private JButton jButton4;
-    private JLabel jLabel1;
-
-    private JPanel jPanel1;
-    private JPanel jPanel2;
-    private JPanel jPanel3;
-    // End of variables declaration
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
 }
