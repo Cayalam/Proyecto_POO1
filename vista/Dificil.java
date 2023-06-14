@@ -12,38 +12,40 @@ import javax.swing.JLabel;
 
 public class Dificil extends JFrame 
 {
-    static String textoBaseDePreguntas = 
-"¿Cual es el elemento más ligero en la tabla periodica?\tHidrógeno\tHelio\tLitio\tOxigeno"
+  static String textoBaseDePreguntas =
+"¿Cuál es el elemento más ligero en la tabla periódica?\tHidrógeno\tHelio\tLitio\tOxígeno"
 +"\n"
-+"En que año se fundo la compañia Microsoft?\t1975\t1980\t1985\t1990"
++"¿En qué año se fundó la compañía Microsoft?\t1975\t1980\t1985\t1990"
 +"\n"
-+"¿Cual es el país con mayor población del mundo?\tChina\tIndia\tEstados Unidos\tRusia"
++"¿Cuál es el país con mayor población del mundo?\tChina\tIndia\tEstados Unidos\tRusia"
 +"\n"
-+"¿Cual es el país con mayor población de América Latina?\tBrasil\tMéxico\tColombia\tArgentina"
++"¿Cuál es el país con mayor población de América Latina?\tBrasil\tMéxico\tColombia\tArgentina"
 +"\n"
-+"Cual es el oceano más grande del mundo?\tOceano Pacifico\tOceano Atlantico\tOceano Indico\tOceano Glacial Antartico"
++"¿Cuál es el océano más grande del mundo?\tOcéano Pacífico\tOcéano Atlántico\tOcéano Índico\tOcéano Glacial Antártico"
 +"\n"
-+"¿Cual es el río más largo del mundo?\tRio Nilo\tRio Amazonas\tRio Yangtze\tRio Misisipi"
++"¿Cuál es el río más largo del mundo?\tRío Nilo\tRío Amazonas\tRío Yangtsé\tRío Misisipi"
 +"\n"
-+"¿Cual es el país más grande del mundo?\tRusia\tCanada\tChina\tEstados Unidos"
++"¿Cuál es el país más grande del mundo?\tRusia\tCanadá\tChina\tEstados Unidos"
 +"\n"
-+"Quien escribio el libro El Principito?\tAntoine de Saint-Exupéry\tJulio Verne\tJ. K. Rowling\tJ. R. R. Tolkien"
++"¿Quién escribió el libro El Principito?\tAntoine de Saint-Exupéry\tJulio Verne\tJ. K. Rowling\tJ. R. R. Tolkien"
 +"\n"
-+"Cual es la lengua más hablada del mundo?\tChino Mandarín\tEspañol\tIngles\tHindi"
++"¿Cuál es la lengua más hablada del mundo?\tChino Mandarín\tEspañol\tInglés\tHindi"
 +"\n"
-+"En que pais se encuentra el Taj Mahal?\tIndia\tChina\tJapon\tTailandia"
++"¿En qué país se encuentra el Taj Mahal?\tIndia\tChina\tJapón\tTailandia"
 +"\n"
-+"¿Cual es la obra mas famosa de Leonardo Da Vinci?\tLa Mona Lisa\tLa Ultima Cena\tLa Gioconda\tLa Dama del Armiño"
++"¿Cuál es la obra más famosa de Leonardo Da Vinci?\tLa Mona Lisa\tLa Última Cena\tLa Gioconda\tLa Dama del Armiño"
 +"\n"
-+"¿Cual es el país con mayor superficie del mundo?\tRusia\tCanada\tChina\tEstados Unidos"
++"¿Cuál es el país con mayor superficie del mundo?\tRusia\tCanadá\tChina\tEstados Unidos"
 +"\n"
-+"Cual es el desierto mas grande del mundo?\tSahara\tAntartico\tArabia\tGobi"
++"¿Cuál es el desierto más grande del mundo?\tSahara\tAntártico\tArabia\tGobi"
 +"\n"
-+"¿Cual es la ciudad mas poblada de Africa?\tEl Cairo\tLagos\tKinshasa\tJohannesburgo"
++"¿Cuál es la ciudad más poblada de África?\tEl Cairo\tLagos\tKinshasa\tJohannesburgo"
 +"\n"
-+"¿Cual es el instrumento musical mas antiguo del mundo?\tFlauta\tTambor\tViolin\tPiano"
++"¿Cuál es el instrumento musical más antiguo del mundo?\tFlauta\tTambor\tViolín\tPiano"
 +"\n"
-+"¿Cual es la estatua mas famosa del mundo?\tLa Estatua de la Libertad\tEl David\tEl Pensador\tEl Moises";
++"¿Cuál es la estatua más famosa del mundo?\tLa Estatua de la Libertad\tEl David\tEl Pensador\tEl Moisés";
+
+
 
     static String[] renglones = textoBaseDePreguntas.split("\n");
     static int cantidadDePreguntas = renglones.length;
@@ -78,7 +80,7 @@ public class Dificil extends JFrame
             Collections.shuffle(Opciones);
         }
     }
-//Veo muchos if /else, qué pasó con el "Try" y compañia 
+
 
     public void mostrarPregunta() {
         jLabel1.setText(pregunta);
@@ -137,7 +139,7 @@ public class Dificil extends JFrame
 
     public void jugar() {
     puntuacion = calcularPuntuacion(preguntasAcertadas, preguntasFalladas);
-     ArrayList<Integer> indices = new ArrayList<>();
+    ArrayList<Integer> indices = new ArrayList<>();
         for (int i = 0; i < cantidadDePreguntas; i++) {
             indices.add(i);
         }
@@ -147,6 +149,7 @@ public class Dificil extends JFrame
         escogerPregunta(indicePregunta);
         mostrarPregunta();
         n_pregunta++;
+
     if (n_pregunta == cantidadDePreguntas) {
           
     JOptionPane.showMessageDialog(
@@ -157,10 +160,9 @@ public class Dificil extends JFrame
 );
             System.exit(0);
         }
-        escogerPregunta(n_pregunta);
-        mostrarPregunta();
-        n_pregunta++;
+        
     }
+     
 
     public Dificil(Object object) {
         for (int i = 0; i < renglones.length; i++) {
@@ -278,3 +280,5 @@ public class Dificil extends JFrame
     private JPanel jPanel3;
     // End of variables declaration                   
 }
+
+

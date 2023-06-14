@@ -154,9 +154,7 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
             );
             System.exit(0);
         }
-        escogerPregunta(n_pregunta);
-        mostrarPregunta();
-        n_pregunta++;
+        
     }
 
     public Intermedio(Object object) {

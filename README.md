@@ -12,6 +12,8 @@ Si esto se sigue presentando la principal consecuencia que tendremos será que n
 ## Descripción de la solución
 Nuestra idea es crear un programa que haga preguntas de diversa índole y asi la gente a su vez que se divierte pueda adquirir conocimiento y asi poder empezar a solucionar este problema desde el ámbito que lo provoca que es el entretenimiento. Todo esto con el fin de que asi sea todos nos lleguemos a interesar por cualquiera que sea el ámbito del conocimiento, ya sea historia, arte, ciencia, etc. Además, las personas no perderán el interés por este ya que al ser una actividad didáctica volver a repetirla en diferentes ocasiones.
 ## Diagrama de clases
+!['Diagrama de clases'](DiagramaDeClases.jpg)
+
 
 ## Interfaz gráfica Y Como Funciona el programa.
 -------------
