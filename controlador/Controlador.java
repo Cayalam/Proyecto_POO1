@@ -36,7 +36,7 @@ public class Controlador implements ActionListener
 
         }
         if (comando.equals("salir")){
-            JOptionPane.showMessageDialog(null, "Gracias por jugar");
+            JOptionPane.showMessageDialog(null, "Has salido de la aplicación");
             System.exit(0);
 }
 
@@ -60,14 +60,7 @@ public class Controlador implements ActionListener
             preguntasDificil = new Dificil(comando);
 
         }
-        if (comando.equals("siguiente")){
-            venPrin.crearDialogoPreguntas();
-            this.venPrin.miDialogoNiveles.agregarOyenteBoton(this);
-
-            //si no hay mas preguntas desir el puntaje
         
-                
-            }
 
 
 
