@@ -45,7 +45,7 @@ public class Facil extends JFrame
     
     ArrayList<String> Opciones = new ArrayList<>();
 
-    
+ 
 
     static int preguntasAcertadas = 0;
     static int preguntasFalladas = 0;
@@ -121,7 +121,7 @@ public class Facil extends JFrame
         }
         jugar();
     }
-     static int n_pregunta = 0;
+    static int n_pregunta = 0;
     static ArrayList<Integer> preguntasUsadas = new ArrayList<>();
 
     public void jugar() {
@@ -131,7 +131,7 @@ public class Facil extends JFrame
             indices.add(i);
         }
         Collections.shuffle(indices);
-          int indicePregunta = -1;
+           int indicePregunta = -1;
         for (int i = 0; i < cantidadDePreguntas; i++) {
             if (!preguntasUsadas.contains(indices.get(i))) {
                 indicePregunta = indices.get(i);
@@ -146,7 +146,7 @@ public class Facil extends JFrame
             n_pregunta++;
         }
 
-
+        
 
     if (n_pregunta == cantidadDePreguntas) {
           
