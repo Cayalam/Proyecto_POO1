@@ -60,7 +60,7 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
     
     ArrayList<String> Opciones = new ArrayList<>();
 
-    int n_pregunta = 0;
+   
 
     static int preguntasAcertadas = 0;
     static int preguntasFalladas = 0;
@@ -132,7 +132,9 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
         }
         jugar();
     }
-
+    
+    static int n_pregunta = 0;
+    static ArrayList<Integer> preguntasUsadas = new ArrayList<>();
     public void jugar() {
           puntuacion = calcularPuntuacion(preguntasAcertadas, preguntasFalladas);
            ArrayList<Integer> indices = new ArrayList<>();
@@ -140,15 +142,28 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
             indices.add(i);
         }
         Collections.shuffle(indices);
+          int indicePregunta = -1;
+        for (int i = 0; i < cantidadDePreguntas; i++) {
+            if (!preguntasUsadas.contains(indices.get(i))) {
+                indicePregunta = indices.get(i);
+                break;
+            }
+        }
 
-        int indicePregunta = indices.get(n_pregunta);
-        escogerPregunta(indicePregunta);
-        mostrarPregunta();
-        n_pregunta++;
+        if (indicePregunta != -1) {
+            preguntasUsadas.add(indicePregunta);
+            escogerPregunta(indicePregunta);
+            mostrarPregunta();
+            n_pregunta++;
+        }
+
+        
+        
+
         if (n_pregunta == cantidadDePreguntas) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Preguntas acertadas: " + preguntasAcertadas + "\n\nPreguntas falladas: " + preguntasFalladas +"\n\nTu puntuación fue: "+ puntuacion+"\n\nCada dia te su",
+                    "Preguntas acertadas: " + preguntasAcertadas + "\n\nPreguntas falladas: " + preguntasFalladas +"\n\nTu puntuación fue: "+ puntuacion+"\n\nCada dia te superas mas :3",
                     "Resultados :/",
                     JOptionPane.PLAIN_MESSAGE
             );
@@ -168,6 +183,7 @@ static String[][] baseDePreguntas = new String[cantidadDePreguntas][13];
         //setExtendedState(MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+
         jugar();
     }
     @SuppressWarnings("unchecked")

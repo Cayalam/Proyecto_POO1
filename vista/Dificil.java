@@ -60,8 +60,7 @@ public class Dificil extends JFrame
     
     ArrayList<String> Opciones = new ArrayList<>();
 
-    int n_pregunta = 0;
-
+  
     static int preguntasAcertadas = 0;
     static int preguntasFalladas = 0;
     static int puntuacion = 0;
@@ -136,6 +135,8 @@ public class Dificil extends JFrame
         }
         jugar();
     }
+    static int n_pregunta = 0;
+    static ArrayList<Integer> preguntasUsadas = new ArrayList<>();
 
     public void jugar() {
     puntuacion = calcularPuntuacion(preguntasAcertadas, preguntasFalladas);
@@ -144,11 +145,22 @@ public class Dificil extends JFrame
             indices.add(i);
         }
         Collections.shuffle(indices);
+        int indicePregunta = -1;
+        for (int i = 0; i < cantidadDePreguntas; i++) {
+            if (!preguntasUsadas.contains(indices.get(i))) {
+                indicePregunta = indices.get(i);
+                break;
+            }
+        }
 
-        int indicePregunta = indices.get(n_pregunta);
-        escogerPregunta(indicePregunta);
-        mostrarPregunta();
-        n_pregunta++;
+        if (indicePregunta != -1) {
+            preguntasUsadas.add(indicePregunta);
+            escogerPregunta(indicePregunta);
+            mostrarPregunta();
+            n_pregunta++;
+        }
+
+
 
     if (n_pregunta == cantidadDePreguntas) {
           
